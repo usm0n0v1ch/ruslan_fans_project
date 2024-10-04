@@ -1,14 +1,15 @@
 .main-container{
-
 }
+
 .glavnaya{
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     gap: 200px;
     padding: 20px;
     border-bottom: 1px solid gray;
 }
+
 .glavnaya-text{
     font-size: 30px;
     font-weight: bold;
@@ -19,18 +20,19 @@
     font-weight: bold;
 }
 
-
 .create-newpost-btn{
     padding: 20px;
-    color:gray;
+    color: gray;
     border-bottom: 1px solid gray;
 }
+
 .post-profile-photo-name-public-date{
     padding: 20px;
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
 }
+
 .profile-photo-name{
     display: flex;
     flex-direction: row;
@@ -43,14 +45,17 @@
     border-radius: 50%;
     background-color: gray;
 }
+
 .img-profile-photo{
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
+
 .profile-name{
     font-size: 48px;
 }
+
 .post-public-date{
     margin-top: 20px;
 }
@@ -59,80 +64,84 @@
     padding: 20px;
     border-bottom: 1px solid gray;
 }
+
 .post-photo{
     background: white;
 }
+
 .img-post-photo{
     width: 100%;
     height: 100%;
 }
+
 .post-options{
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     gap: 20px;
     padding: 20px;
-
 }
+
 .post-like-comment-pay{
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     gap: 20px;
 }
+
 .post-like-count {
     padding: 20px;
     border-bottom: 1px solid gray;
 }
 
-
 .post-like {
-        background-color: transparent; /* Default background */
-        border: none; /* No border */
-        cursor: pointer; /* Change cursor on hover */
-    }
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
 
 .post-like.liked {
-        color: red; /* Change color to red when liked */}
-
+    color: red; /* Здесь закрыта скобка */
+}
 
 .post-like-img i {
-    font-size: 50px; /* Change this value to increase/decrease size */
+    font-size: 50px;
     transition: transform 0.3s ease;
 }
 
 .post-like-img i:hover {
-    transform: scale(1.5); /* Adjust the scale value as needed */
+    transform: scale(1.5);
 }
 
 .post-comment i{
     font-size: 50px;
     transition: transform 0.3s ease;
 }
+
 .post-comment i:hover{
-    transform: scale(1.5); /* Adjust the scale value as needed */
+    transform: scale(1.5);
 }
 
 .post-pay i{
     font-size: 50px;
     transition: transform 0.3s ease;
 }
+
 .post-pay i:hover{
-    transform: scale(1.5); /* Adjust the scale value as needed */
+    transform: scale(1.5);
 }
 
 .post-collection i{
     font-size: 50px;
     transition: transform 0.3s ease;
 }
+
 .post-collection i:hover{
-    transform: scale(1.5); /* Adjust the scale value as needed */
+    transform: scale(1.5);
 }
 
-
-
 .post-collection {
-    display: inline-block; /* Keeps it inline with other elements */
+    display: inline-block;
 }
 
 .bookmark-button {
@@ -142,13 +151,12 @@
 }
 
 .bookmark-button:hover {
-    color: #007bff; /* Change color on hover */
+    color: #007bff;
 }
 
 .bookmarked {
-    color: gold; /* Color for bookmarked state */
+    color: gold;
 }
-
 
 .bookmark-button {
     width: 50px;
@@ -156,5 +164,5 @@
     background: none;
     border: none;
     padding: 0;
-    cursor: pointer; /* Add this for better UX */
+    cursor: pointer;
 }

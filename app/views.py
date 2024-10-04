@@ -24,7 +24,7 @@ class MainView(TemplateView):
             bookmarks = {bookmark.post.id for bookmark in user.profile.bookmark_set.all()}
             context['bookmarks'] = bookmarks
         else:
-            context['bookmarks'] = set()  # Empty set if user is not authenticated
+            context['bookmarks'] = set()
 
         return context
 
@@ -162,9 +162,9 @@ class BookmarkListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user_profile = self.request.user.profile  # Получаем профиль текущего пользователя
-        bookmarks = Bookmark.objects.filter(profile=user_profile).select_related('post')  # Получаем все закладки профиля
-        posts = [bookmark.post for bookmark in bookmarks]  # Получаем посты, связанные с закладками
-        context['posts'] = posts  # Передаем посты в контекст
+        user_profile = self.request.user.profile
+        bookmarks = Bookmark.objects.filter(profile=user_profile).select_related('post')
+        posts = [bookmark.post for bookmark in bookmarks]
+        context['posts'] = posts
         return context
 
