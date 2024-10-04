@@ -1,0 +1,68 @@
+.create-new-post-container{
+    display: flex;
+    flex-direction: column;
+}
+.create-new-post-and-back-btn{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    border-bottom: 1px solid gray;
+}
+.back-btn-create-new-post{
+    font-size: 48px;
+}
+
+.create-new-post-text{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+.create-new-post-form {
+    width: 100%;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+}
+
+.create-new-post-form .form-group {
+    margin-bottom: 15px;
+}
+
+.create-new-post-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.create-new-post-form input[type="text"],
+.create-new-post-form input[type="file"],
+.create-new-post-form textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-left: 5%;
+}
+
+.create-new-post-form button[type="submit"] {
+    margin-left: 5%;
+    width: 90%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-new-post-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}

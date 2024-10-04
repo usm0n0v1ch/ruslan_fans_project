@@ -1,0 +1,27 @@
+{% extends "app/layouts/base.html" %}
+{% load static %}
+
+{% block title %}Редактирование профиля{% endblock %}
+
+{% block content %}
+    <div class="edit-my-profile-container">
+        <div class="edit-my-profile-back-btn-and-text">
+            <a href="{% url 'my-profile' %}">
+                <div class="edit-my-profile-back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                </div>
+            </a>
+            <div class="edit-my-profile-text">
+                Редактировать профиль
+            </div>
+        </div>
+        <div class="edit-my-profile-form">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Сохранить</button>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

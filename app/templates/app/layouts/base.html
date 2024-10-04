@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'app/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app/css/my-profile.css' %}">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@latest/css/boxicons.min.css'>
+    <link rel="stylesheet" href="{% static 'app/css/create-new-post.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/edit-my-profile.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/post_confirm_delete.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/comments.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/profile_detail.css' %}">
+
+</head>
+<body>
+<div class="container">
+    <div class="one">
+        {% include 'app/layouts/header.html' %}
+    </div>
+    <div class="two">
+            {% block content %}{% endblock %}
+    </div>
+    <div class="three">
+        {% include 'app/layouts/footer.html' %}
+    </div>
+</div>
+<script>
+    document.querySelectorAll('.like-form').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const button = this.querySelector('.post-like');
+            const postId = this.id.split('-')[2];
+
+            button.classList.toggle('liked');
+
+
+            fetch(this.action, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    button.classList.toggle('liked');
+                } else {
+
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                button.classList.toggle('liked');
+            });
+        });
+    });
+</script>
+<style>
+    .post-like {
+        background-color: transparent; */
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+    }
+
+    .post-like.liked {
+        color: red;
+    }
+</style>
+
+</body>
+</html>

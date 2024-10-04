@@ -1,0 +1,129 @@
+.my-profile-name-and-back{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    color: white;
+}
+
+.my-profile-name-photo{
+    background: gray;
+}
+.my-profile-name{
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+}
+
+.back-btn-my-profile i {
+    color: white;
+    font-size: 48px;
+    transition: transform 0.3s ease;
+}
+
+.back-btn-my-profile i:hover {
+    transform: scale(1.4);
+    background:#E7E7E7 ;
+    border-radius: 24px;
+}
+
+.profile-img-edit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+}
+.my-profile-img{
+
+}
+.mini-img-my-profile-photo{
+    border: 5px solid aqua;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -40px;
+}
+.my-profile-edit{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: larger;
+    font-weight: bold;
+    color: #39d3be;
+    padding: 20px 10px 10px 10px;
+    border-radius: 24px;
+    transition: transform 0.3s ease;
+    border: 1px solid gray;
+
+}
+.my-profile-edit:hover{
+    cursor: pointer;
+    background: #E7E7E7;
+    border: 1px solid #39d3be;
+}
+.my-profile-edit-icon{
+    font-size: 150%;
+    margin-top: -5px;
+}
+
+.my-profile-info{
+    padding: 20px;
+}
+.my-profile-info-name{
+    font-size: 48px;
+    font-weight: bold;
+}
+.my-profile-info-id{
+    font-size: 24px;
+    font-weight: bold;
+    color: gray;
+    border-bottom: 1px solid gray;
+}
+
+.img-my-profile-photo{
+    width: 100%;
+    height: 200px;
+}
+
+.delete-post{
+    color: red;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.delete-post:hover {
+
+    transform: scale(1.2);
+}
+
+.delete-post i {
+    font-size: 50px;
+}
+
+.trash-btn{
+    color: red;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+
+.my-profile-exit a {
+    color: red;
+    transition: transform 0.3s ease;
+}
+
+.my-profile-exit a i {
+    color: red;
+    transition: transform 0.3s ease;
+}
+.my-profile-exit{
+    transition: transform 0.3s ease;
+}
+.my-profile-exit:hover {
+    transform: scale(1.4);
+}

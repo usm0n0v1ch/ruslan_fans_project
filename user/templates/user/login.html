@@ -1,0 +1,25 @@
+{% extends 'user/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Вход{% endblock %}
+
+
+
+{% block content %}
+    <div class="container">
+        <div>
+            <h2>Вход</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Вход</button>
+            </form>
+        </div>
+        <div>
+            Еще не зарегистрированы? <a href="{% url 'register' %}">Нажмите сюда</a>
+        </div>
+    </div>
+
+
+{% endblock %}

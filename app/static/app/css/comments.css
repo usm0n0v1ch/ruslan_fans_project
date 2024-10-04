@@ -1,0 +1,80 @@
+/* Comment form */
+.create-comment {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-comment .input-group {
+    margin-bottom: 10px;
+}
+
+.create-comment textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.create-comment button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.create-comment button:hover {
+    background-color: #0056b3;
+}
+
+/* Comment section */
+.comment-section {
+    margin-top: 30px;
+}
+
+.comment-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.comment-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.comment-section li {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.comment-section li strong {
+    font-weight: bold;
+    color: #333;
+}
+
+.comment-section li small {
+    display: block;
+    color: #888;
+    margin-top: 5px;
+    font-size: 0.85rem;
+}
+
+.comment-section li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Styling for empty state */
+.comment-section li.empty {
+    font-style: italic;
+    color: #999;
+}

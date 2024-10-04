@@ -1,0 +1,40 @@
+.post-delete-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-delete-text {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.post-delete-btn {
+    margin-bottom: 15px;
+}
+
+
+
+
+.cancel-delete-btn {
+    margin-top: 10px;
+}
+
+.cancel-delete-btn a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.cancel-delete-btn a:hover {
+    color: #0056b3;
+}

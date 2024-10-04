@@ -1,0 +1,102 @@
+{% extends 'app/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}Комментарии{% endblock %}
+
+{% block content %}
+<div class="comment-container">
+    <div class="edit-my-profile-back-btn-and-text">
+            <a href="{% url 'main' %}">
+                <div class="edit-my-profile-back-btn">
+                    <i class='bx bx-arrow-back'></i>
+                </div>
+            </a>
+            <div class="edit-my-profile-text">
+                Комментарии поста
+            </div>
+        </div>
+    <div class="post-comment">
+        <div class="post">
+            <div class="post-profile-photo-name-public-date">
+                <div class="profile-photo-name">
+                    <div class="profile-photo">
+                        {% if post.profile.photo %}
+                            <img class="img-profile-photo" src="{{ post.profile.photo.url }}" alt="{{ post.profile.user.username }}'s profile photo">
+                        {% else %}
+                            <img style="background: white" class="img-profile-photo" src="{% static 'app/media/icons_for_nav/profile.png' %}" alt="Default profile photo">
+                        {% endif %}
+                    </div>
+                    <div class="profile-name">
+                        {{ post.profile.user.username }}
+                    </div>
+                </div>
+                <div class="post-public-date">
+                    {{ post.created_at }}
+                </div>
+            </div>
+            <div class="post-description">
+                {{ post.description }}
+            </div>
+            <div class="post-photo">
+                <img class="img-post-photo" src="{{ post.photo.url }}">
+            </div>
+            <div class="post-options">
+                <div class="post-like-comment-pay">
+                    <form method="post" action="{% url 'like_post' post.id %}" class="like-form" id="like-form-{{ post.id }}">
+                        {% csrf_token %}
+                        <button type="submit" class="post-like {% if request.user in post.likes.all %}liked{% endif %}" id="like-button-{{ post.id }}" title="{% if request.user in post.likes.all %}Убрать лайк{% else %}Поставить лайк{% endif %}">
+                            <div class="post-like-img">
+                                <i class="bx bx-heart"></i>
+                            </div>
+                        </button>
+                    </form>
+                    <div class="post-comment">
+                        <i class="bx bx-comment"></i>
+                    </div>
+                    <div class="post-pay">
+                        <i class="bx bx-dollar"></i>
+                    </div>
+
+
+                </div>
+                <div class="post-collection">
+                    <i class="bx bx-bookmark"></i>
+                </div>
+            </div>
+            <div class="post-like-count">
+                {{ post.likes.count }} любит
+            </div>
+        </div>
+    </div>
+    <div class="create-comment">
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                {{ form.description }}
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+    <div class="comment-section">
+    <h3>Комментарии:</h3>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <strong>{{ comment.profile.user.username }}:</strong>
+                {{ comment.description }} <br>
+                <small>{{ comment.created_at }}</small>
+            </li>
+        {% empty %}
+            <li>Нет комментариев.</li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

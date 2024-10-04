@@ -1,0 +1,71 @@
+{% load static %}
+
+
+<header>
+    <div class="navigation">
+        <a>
+            <div class="navigation_option">
+                <div><img ></div>
+                <div>Профиль</div>
+            </div>
+        </a>
+        <a href="{% url 'main' %}">
+            <div class="navigation_option">
+                <div><img class="img-nav" src="{% static 'app/media/icons_for_nav/main.png' %}"></div>
+                <div>Главная</div>
+            </div>
+        </a>
+        <a>
+            <div class="navigation_option">
+                <div><img class="img-nav" src="{% static 'app/media/icons_for_nav/notifications.png' %}"></div>
+                <div>Уведомления</div>
+            </div>
+        </a>
+        <a>
+            <div class="navigation_option">
+                <div><img class="img-nav" src="{% static 'app/media/icons_for_nav/message.png' %}"></div>
+                <div>Сообщения</div>
+            </div>
+        </a>
+        <a href="{% url 'bookmarks' %}">
+            <div class="navigation_option">
+                <div><img class="img-nav" src="{% static 'app/media/icons_for_nav/collections.png' %}"></div>
+                <div>Коллекции</div>
+            </div>
+        </a>
+        <a>
+            <div class="navigation_option">
+                <div><img class="img-nav" src="{% static 'app/media/icons_for_nav/new_subscriber.png' %}"></div>
+                <div>Подписки</div>
+            </div>
+        </a>
+        <a>
+            <div class="navigation_option">
+                <div><img class="img-nav" src="{% static 'app/media/icons_for_nav/card.png' %}"></div>
+                <div>Добавить карточку</div>
+            </div>
+        </a>
+        <a href="{% url 'my-profile' %}">
+            <div class="navigation_option">
+                <div><img class="img-nav" src="{% static 'app/media/icons_for_nav/profile.png' %}"></div>
+                <div>Мой профиль</div>
+            </div>
+        </a>
+        <a>
+            <div class="navigation_option">
+            <div><img class="img-nav" src="{% static 'app/media/icons_for_nav/more.png' %}"></div>
+            <div>Больше</div>
+        </div>
+        </a>
+        <a href="{% url 'create-new-post' %}">
+            <div class="navigation_option">
+                <div><img class="img-nav" src="{% static 'app/media/icons_for_nav/plus.png' %}"></div>
+                <div>Новый пост</div>
+            </div>
+        </a>
+
+
+
+
+    </div>
+</header>

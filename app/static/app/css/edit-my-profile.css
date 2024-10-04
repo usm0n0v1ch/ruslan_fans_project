@@ -1,0 +1,70 @@
+.edit-my-profile-container{
+    display: flex;
+    flex-direction: column;
+}
+.edit-my-profile-back-btn-and-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.edit-my-profile-back-btn{
+    font-size: 48px;
+}
+.edit-my-profile-text{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+
+
+
+
+.edit-my-profile-form {
+    width: 100%;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+
+}
+
+.edit-my-profile-form .form-group {
+    margin-bottom: 15px;
+}
+
+.edit-my-profile-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.edit-my-profile-form input[type="text"],
+.edit-my-profile-form input[type="file"],
+.edit-my-profile-form textarea,
+.edit-my-profile-form select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-left: 5%;
+    border-radius: 5px;
+}
+
+.edit-my-profile-form button[type="submit"] {
+    margin-left: 5%;
+    width: 90%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-my-profile-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}

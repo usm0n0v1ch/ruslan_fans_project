@@ -1,0 +1,76 @@
+{% extends 'app/layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ profile.user.username }}{% endblock %}
+
+{% block content %}
+<div class="profile-detail-container">
+    <div class="edit-my-profile-back-btn-and-text">
+        <a href="{% url 'main' %}">
+            <div class="edit-my-profile-back-btn">
+                <i class='bx bx-arrow-back'></i>
+            </div>
+        </a>
+        <div class="edit-my-profile-text">Просмотр профиля</div>
+    </div>
+    <div class="profile-detail">
+        <h2>{{ profile.user.username }}</h2>
+        {% if profile.photo %}
+            <img class="img-profile-photo" src="{{ profile.photo.url }}" alt="{{ profile.user.username }}">
+        {% else %}
+            <img class="img-profile-photo" src="{% static 'app/media/icons_for_nav/profile.png' %}" alt="Default profile photo for users without a profile picture" style="background: white;">
+        {% endif %}
+        <p><strong>Bio:</strong> {{ profile.bio }}</p>
+        <p><strong>Age:</strong> {{ profile.age }}</p>
+
+        <h3>Posts by {{ profile.user.username }}:</h3>
+
+        {% for post in profile.post_set.all %}
+            <div class="post">
+                <div class="post-profile-photo-name-public-date">
+                    <div class="post-public-date">
+                        {{ post.created_at|date:"F j, Y, g:i a" }}  {# Format the date for readability #}
+                    </div>
+                </div>
+                <div class="post-description">
+                    {{ post.description }}
+                </div>
+                <div class="post-photo">
+                    {% if post.photo %}
+                        <img class="img-post-photo" src="{{ post.photo.url }}" alt="Post photo">
+                    {% else %}
+                        <p>No photo available.</p>
+                    {% endif %}
+                </div>
+                <div class="post-options">
+                    <div class="post-like-comment-pay">
+                        <form method="post" action="{% url 'like_post' post.id %}" class="like-form" id="like-form-{{ post.id }}">
+                            {% csrf_token %}
+                            <button type="submit" class="post-like {% if request.user in post.likes.all %}liked{% endif %}" id="like-button-{{ post.id }}" title="{% if request.user in post.likes.all %}Убрать лайк{% else %}Поставить лайк{% endif %}">
+                                <div class="post-like-img">
+                                    <i class="bx bx-heart"></i>
+                                </div>
+                            </button>
+                        </form>
+                        <div class="post-comment">
+                            <a href="{% url 'post_detail' post.id %}"><i class="bx bx-comment"></i></a>
+                        </div>
+                        <div class="post-pay">
+                            <i class="bx bx-dollar"></i>
+                        </div>
+                    </div>
+                    <div class="post-collection">
+                        <i class="bx bx-bookmark"></i>
+                    </div>
+                </div>
+                <div class="post-like-count">
+                    {{ post.likes.count }} любит
+                </div>
+            </div>
+        {% empty %}
+            <p>No posts yet.</p> {# Changed from <li> to <p> for proper formatting #}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

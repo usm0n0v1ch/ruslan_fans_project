@@ -1,0 +1,27 @@
+
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Square Peg', sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.one{
+    padding-left: 100px;
+    width: 25%;
+    border-right: 1px solid gray;
+}
+.two{
+    width: 40%;
+}
+.three{
+    width: 35%;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+}
+
+
+

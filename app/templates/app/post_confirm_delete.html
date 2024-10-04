@@ -1,0 +1,25 @@
+{% extends 'app/layouts/base.html' %}
+
+{% load static %}
+{% block title %}Удаление поста{% endblock %}
+
+{% block content %}
+
+    <div class="post-delete-container">
+        <div class="post-delete-text">
+            Вы уверены, что хотите удалить пост?
+        </div>
+        <form method="post" action="{% url 'post-delete' post.id %}">
+            {% csrf_token %}
+            <div class="post-delete-btn">
+                <button type="submit" class="trash-btn">
+                    <i class='bx bx-trash'></i>
+                </button>
+            </div>
+        </form>
+        <div class="cancel-delete-btn">
+            <a href="{% url 'my-profile' %}">Отмена</a>
+        </div>
+    </div>
+
+{% endblock %}

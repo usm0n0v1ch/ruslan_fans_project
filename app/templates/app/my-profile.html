@@ -1,0 +1,115 @@
+{% extends 'app/layouts/base.html' %}
+
+{% load static %}
+{% block title %}Мой профиль{% endblock %}
+
+{% block content %}
+<div class="my-profile-container">
+
+    <div class="my-profile-name-photo">
+        <div class="my-profile-name-and-back">
+            <div class="back-btn-my-profile">
+                <a href="{% url 'main' %}">
+                    <i class='bx bx-arrow-back'></i>
+                </a>
+            </div>
+            <div class="my-profile-name">
+                {{ profile.user.username }}
+            </div>
+        </div>
+        <div class="my-profile-photo">
+            <img class="img-my-profile-photo">
+        </div>
+    </div>
+    <div class="profile-img-edit">
+        <div class="my-profile-img">
+            {% if profile.photo %}
+                <img class="mini-img-my-profile-photo" src="{{ profile.photo.url }}">
+            {% else %}
+                <img style="background: white" class="mini-img-my-profile-photo" src="{% static 'app/media/icons_for_nav/profile.png' %}">
+            {% endif %}
+        </div>
+        <div class="my-profile-exit">
+            <a href="{% url 'logout' %}"><i class='bx bx-log-out'>Выйти</i></a>
+        </div>
+        <a href="{% url 'edit-my-profile' profile.id %}">
+            <div class="my-profile-edit">
+                <div class="my-profile-edit-icon">
+                    <i class='bx bx-cog'></i>
+                </div>
+                <div class="my-profile-edit-text">
+                    Редактировать профиль
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="my-profile-info">
+        <div class="my-profile-info-name">
+            {{ profile.user.username }}
+        </div>
+        <div class="my-profile-info-id">
+            @{{ profile.user.id }}
+        </div>
+    </div>
+    <div class="my-posts">
+        {% for post in posts %}
+    <div class="posts">
+        <div class="post">
+            <div class="post-profile-photo-name-public-date">
+                <div class="profile-photo-name">
+                    <div class="profile-photo">
+                        {% if post.profile.photo %}
+                            <img class="img-profile-photo" src="{{ post.profile.photo.url }}" alt="{{ post.profile.user.username }}'s profile photo">
+                        {% else %}
+                            <img style="background: white" class="img-profile-photo" src="{% static 'app/media/icons_for_nav/profile.png' %}" alt="Default profile photo">
+                        {% endif %}
+                    </div>
+                    <div class="profile-name">
+                        {{ post.profile.user.username }}
+                    </div>
+                </div>
+                <div class="post-public-date">
+                    {{ post.created_at }}
+                </div>
+            </div>
+            <div class="post-description">
+                {{ post.description }}
+            </div>
+            <div class="post-photo">
+                <img class="img-post-photo" src="{{ post.photo.url }}">
+            </div>
+            <div class="post-options">
+                <div class="post-like-comment-pay">
+                    <form method="post" action="{% url 'like_post' post.id %}" class="like-form" id="like-form-{{ post.id }}">
+                        {% csrf_token %}
+                        <button type="submit" class="post-like {% if request.user in post.likes.all %}liked{% endif %}" id="like-button-{{ post.id }}" title="{% if request.user in post.likes.all %}Убрать лайк{% else %}Поставить лайк{% endif %}">
+                            <div class="post-like-img">
+                                <i class="bx bx-heart"></i>
+                            </div>
+                        </button>
+                    </form>
+                    <div class="post-comment">
+                        <a href="{% url 'post_detail' post.id %}"><i class="bx bx-comment"></i></a>
+                    </div>
+                    <div class="post-pay">
+                        <i class="bx bx-dollar"></i>
+                    </div>
+                    <div class="delete-post">
+                        <a class="trash-btn" href="{% url 'post-delete' post.id %}"><i class="bx bx-trash"></i></a>
+                    </div>
+
+                </div>
+                <div class="post-collection">
+                    <i class="bx bx-bookmark"></i>
+                </div>
+            </div>
+            <div class="post-like-count">
+                {{ post.likes.count }} любит
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
